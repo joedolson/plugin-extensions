@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Always Upload Images
+ * Plugin Name: - OBSOLETE - Always Upload Images
  * Plugin URI: http://www.joedolson.com/wp-tweets-pro/
  * Plugin Description: By default, WP Tweets PRO only uploads image attachments on the first Tweet. This switches to upload on every Tweet that has media.
  * Version: 1.0
