@@ -10,6 +10,6 @@ Author URI: http://www.joedolson.com/
 
 add_filter( 'mc_filter_shortcodes', 'mc_facebook', 10, 2 );
 function mc_facebook( $e, $event ) {
-	$e['facebook'] = "<a href='https://www.facebook.com/sharer.php?u='" . urlencode( mc_event_link( $event ) ) . "'>Share on Facebook</a>";
+	$e['facebook'] = "<a href='https://www.facebook.com/sharer.php?u='" . urlencode( mc_get_details_link( $event ) ) . "'>Share on Facebook</a>";
 	return $e;
 }
