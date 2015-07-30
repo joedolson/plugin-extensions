@@ -1,6 +1,4 @@
-# plugin-extensions
-
-== Plugins that extend my WordPress plug-ins in various ways. ==
+# Joe Dolson Accessible Web Design: Plug-in Extensions
 
 Every file in this repository can be installed as a plug-in. When installed, it'll perform some action that modifies or extends the behavior of one of my other plug-ins. The files are grouped into folders that should make it clear which plug-in they pertain to. 
 
