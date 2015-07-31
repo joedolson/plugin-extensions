@@ -8,8 +8,12 @@
  * Author URI: http://www.joedolson.com
  */
 
+ /**
+  * This is a plugin for testing the response of licensing queries from WP Tweets PRO. 
+  * It's for running a test to see what data the license is returning if it's getting invalid data.
+  */
+  
 add_action( 'admin_init', 'jd_test_license' );
-
 function jd_test_license() {
 	if ( is_admin() && isset( $_GET['test_license'] ) && $_GET['test_license'] == 'true' ) {
 		check_jd_license();
@@ -21,7 +25,7 @@ function check_jd_license() {
 	define('WPT_PRO_PLUGIN_LICENSE_URL', "https://www.joedolson.com/wp-content/plugins/files/license.php" );
 	$response = wp_remote_post( WPT_PRO_PLUGIN_LICENSE_URL, 
 		array (
-			'user-agent' => 'WordPress/WP Tweets PRO 1.7.1; ' . get_bloginfo( 'url' ), 
+			'user-agent' => 'WordPress/WP Tweets PRO Test; ' . get_bloginfo( 'url' ), 
 			'body'=>array ('key'=>$key, 'site'=>urlencode(home_url()) ),
 			'timeout' 	=> 120
 		) );
