@@ -29,7 +29,7 @@ function check_jd_license() {
 			'body'=>array ('key'=>$key, 'site'=>urlencode(home_url()) ),
 			'timeout' 	=> 120
 		) );
-	wp_mail( 'joe@joedolson.com', 'License Response', "Response: " . print_r( $response, 1 ) );
+	wp_mail( get_option( 'admin_email' ), 'License Response', "Response: " . print_r( $response, 1 ) );
 	if ( ! is_wp_error( $response ) || is_array( $response ) ) {
 		$data = $response['body'];
 		if ( !in_array( $data, array( 'false', 'inuse', 'true', 'unconfirmed' ) ) ) {
@@ -37,6 +37,6 @@ function check_jd_license() {
 		}
 		return $data;
 	}
-	echo "<div class='notice update'>Licensing Tested: $data</div>";
+	wp_mail( get_option( 'admin_email' ), 'License Data', "Licensing Tested: $data" );
 		
 }
