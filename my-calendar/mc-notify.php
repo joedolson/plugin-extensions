@@ -27,15 +27,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
 
-
+/**
+ * When an event is edited, send the admin a notification.
+ */
+add_action( 'mc_save_event', 'my_event_notification', 10, 4 );
 function my_event_notification( $action, $data, $event_id, $result ) {
 	$title = $data['event_title'];
 	$start = $data['event_begin'];	
 	if ( $action == 'edit' ) {
 		wp_mail( get_option( 'admin_email' ), "Event edited: $start", "$title has been edited." );
 	}
-	if ( $action == 'delete' ) {
-		wp_mail( get_option( 'admin_email' ), "Event deleted: $start", "$title has been deleted." );
-	}
 }
-add_action( 'mc_save_event', 'my_event_notification', 10, 4 );
+
+/**
+ * This function needs to run *after* the event is deleted from My Calendar, but *before* the event post is deleted.
+ */
+add_action( 'mc_delete_event', 'my_event_deleted_notification', 5, 2 );
+function my_event_deleted_notification( $event_id, $post_id ) {
+	// get the post for this event.
+	$event = get_post( $post_id );
+	$title = $event->post_title;
+	// get the event data saved with the post
+	$data = get_post_meta( $post_id, '_mc_event_data', true );
+	$start = $data['event_begin'];
+	wp_mail( get_option( 'admin_email' ), "Event deleted: $start", "$title has been deleted." );
+}
