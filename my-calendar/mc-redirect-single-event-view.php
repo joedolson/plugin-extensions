@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Custom default image size.
+Plugin Name: Redirect single event
 Plugin URI: http://www.joedolson.com/my-calendar/
-Description: Change the default image size used on My Calendar events.
+Description: Point your single event views back to the main calendar
 Version: 1.0.0
 Author: Joseph Dolson
 Author URI: http://www.joedolson.com/
@@ -30,7 +30,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Modify the default image size in My Calendar events
  */
-add_filter( 'mc_default_image_size', 'my_custom_image_size', 10, 1 );
-function my_custom_image_size( $size ) {
-	return 'large'; // can be any defined image size value in your system. These can be variable. 
+add_action( 'template_redirect', 'redirect_event_single' );
+function redirect_event_single() {
+	if ( ! is_singular( 'mc-events' ) ) {
+		return;
+	} else {
+		$home_id = get_option( 'mc_uri_id' );
+		$calendar = get_permalink( $home_id );
+		wp_safe_redirect( $calendar, 301 );
+		exit;
+	}
 }
