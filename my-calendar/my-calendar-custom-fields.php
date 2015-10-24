@@ -15,11 +15,12 @@ Author URI: http://www.joedolson.com/
  * @param string $form HTML of any other added custom fields.
  * @param boolean $has_data If true, this is an event being edited or corrected.
  * @param object $event The event object saved.
+ * @param string $context 'public' or 'admin', depending on whether this is being rendered in the Pro submissions form or WP Admin.
  *
  * @return string
 **/ 
 add_filter( 'mc_event_details', 'my_event_email', 10, 4 );
-function my_event_email( $form, $has_data, $event ) {
+function my_event_email( $form, $has_data, $event, $context ) {
 	$post_id = $event->event_post;
 	/* Any custom fields are saved as custom post meta */
 	$email = esc_attr( get_post_meta( $post_id, '_mc_event_email', true ) );
