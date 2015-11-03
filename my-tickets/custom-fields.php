@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Tester
+Plugin Name: My Tickets: Custom Fields
 Plugin URI: http://www.joedolson.com/my-tickets/
 Description: Test Custom Fields in My Tickets
 Version: 1.0.0
@@ -9,9 +9,9 @@ Author URI: http://www.joedolson.com/
 */
 /*  Copyright 2014  Joseph C Dolson  (email : plugins@joedolson.com)
 
-    This program is free software; you can redistribute it and/or modify
+    This program is  software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
+    the  Software Foundation; either version 2 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
@@ -20,7 +20,7 @@ Author URI: http://www.joedolson.com/
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
+    along with this program; if not, write to the  Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
