@@ -21,9 +21,13 @@ Author URI: http://www.joedolson.com/
 **/ 
 add_filter( 'mc_event_details', 'my_event_email', 10, 4 );
 function my_event_email( $form, $has_data, $event, $context ) {
-	$post_id = $event->event_post;
-	/* Any custom fields are saved as custom post meta */
-	$email = esc_attr( get_post_meta( $post_id, '_mc_event_email', true ) );
+	if ( $has_data ) {
+		$post_id = $event->event_post;
+		/* Any custom fields are saved as custom post meta */
+		$email = esc_attr( get_post_meta( $post_id, '_mc_event_email', true ) );
+	} else {
+		$email = '';
+	}
 	$form .= "<p><label for='event_email'>" . __( 'Contact Email', 'yourtextdomain' ) . "</label> <input type='email' name='event_email' id='event_email' value='$email' /></p>";
 	
 	return $form;
