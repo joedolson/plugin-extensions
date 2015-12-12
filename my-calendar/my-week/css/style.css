@@ -1,0 +1,36 @@
+.mc-week {
+	display: table;
+	width: 100%;
+	background-color: #2C3242;
+}
+
+.mc-week .mc-week-list {
+	display: table-row;
+}
+
+.mc-week .mc-week-list li {
+	display: table-cell;
+	text-align: center;
+}
+
+.mc-week .mc-week-list a {
+	display: block;
+	padding: .5em;
+	color: #fff !important;
+}
+
+.mc-week .mc-week-list a:hover,
+.mc-week .mc-week-list a:focus {
+	background: #485169 !important;
+}
+
+
+.mc-week .mc-week-list .current-day {
+	background-color: #485169;
+}
+
+@media (max-width: 768px) {
+	.mc-week { display: block; }
+	.mc-week .mc-week-list { display: block; }
+	.mc-week .mc-week-list li { display: block; }
+}
