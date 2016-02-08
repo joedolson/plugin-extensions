@@ -7,7 +7,7 @@ Version: 1.0.0
 Author: Joseph Dolson
 Author URI: http://www.joedolson.com/
 */
-/*  Copyright 2014  Joseph C Dolson  (email : plugins@joedolson.com)
+/*  Copyright 2014-2016  Joseph C Dolson  (email : plugins@joedolson.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
