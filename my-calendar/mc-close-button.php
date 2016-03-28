@@ -20,7 +20,7 @@ function mc_close_button( $html ) {
 	/**
 	 * Example using custom image
 	 */
-	$return = '<img src="/path/to/my/custom-icon.png"/ alt="Close" />';
+	$return = '<img src="/path/to/my/custom-icon.png" alt="Close" />';
 	
 	return $return;
 }
