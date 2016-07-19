@@ -38,6 +38,17 @@ function create_custom_fields( $array ) {
 		'input_values'=>array( 'Test Mode', 'Application Mode', 'Pizza Roll' ),
 		'context'=> 'global'
 	);
+	/**
+	 * Add a second custom field by adding more values to the array
+	 *
+	$array['choose_seats'] = array(
+		'title'=>"Seat(s) Selection:",
+		'sanitize_callback'=>'sanitize_callback',
+		'display_callback'=>'display_callback',
+		'input_type'=>'Text',
+		'context'=> 'global'
+	);
+	*/
 	return $array;
 }
 
