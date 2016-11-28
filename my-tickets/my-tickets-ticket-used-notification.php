@@ -32,9 +32,7 @@ function my_ticket_verified( $verified, $is_used, $purchase_id, $ticket_id ) {
 		
 		$subject = "$site: $last/$ticket_id used";
 		$body    = "Ticket #$ticket_id has been used, purchased by $name from $site.";
-		
-		echo "$subject, $body";
-		
+				
 		// Notificaton sent to admin
 		wp_mail( get_option( 'admin_email' ), $subject, $body );
 		// Notification sent to purchaser
