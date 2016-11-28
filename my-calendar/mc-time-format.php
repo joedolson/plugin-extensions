@@ -14,5 +14,5 @@ add_filter( 'mc_time_format', 'my_time_format', 10, 1 );
  * Pass any string using the pickadate.time formatting rules: http://amsul.ca/pickadate.js/time/#formatting-rules
  */
 function my_time_format( $format ) {
-	return 'H:i U!hr'; // German format
+	return 'H:i'; // European 24-hour format
 }
