@@ -17,5 +17,6 @@ function my_custom_filters( $continue, $args ) {
 	if ( is_object_in_term( $args['info']['id'], 'category', array( 'wordpress', 'plugins' ) ) && $args['info']['authId'] == 2 ) {
 		$continue = false;
 	}
+	
 	return $continue;
 }
