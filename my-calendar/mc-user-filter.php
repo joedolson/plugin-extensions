@@ -36,6 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string new database column to sort by
  */
 add_filter( 'mc_filter_user_arguments', 'my_filter_user_arguments', 10, 2 );
+function my_filter_user_arguments( $args, $count ) {
 	// Specifically list users with either the 'administrator', 'editor', or 'event_manager' role. 
 	// (Event manager is completely made up, and is not a real role.)
 	$args['role__in'] = array( 'administrator', 'editor', 'event_manager' );
