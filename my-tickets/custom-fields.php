@@ -59,5 +59,5 @@ function display_callback( $data, $context='payment' ) {
 
 /* This sanitize callback is used to sanitize the data before it's saved to the DB */
 function sanitize_callback( $data ) {
-	return esc_sql( $data );
+	return esc_html( $data );
 }
