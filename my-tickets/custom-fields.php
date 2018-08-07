@@ -43,7 +43,7 @@ function create_custom_fields( $array ) {
 			'Consultant', 
 			'Marketer' 
 		),
-		'context'           => 'global', // Can be an event ID.
+		'context'           => 'custom', // Can be an event ID to restrict to that event.
 		'required'          => 'true',
 	);
 	/**
@@ -81,4 +81,26 @@ function custom_display_callback( $data, $context='payment' ) {
  */
 function custom_sanitize_callback( $data ) {
 	return ( $data ) ? esc_html( $data ) : '';
+}
+
+add_filter( 'mt_apply_custom_field_rules', 'my_custom_field_rules', 10, 3 );
+/**
+ * Use a custom rule set to determine when a field should be displayed.
+ *
+ * @param bool  $return Should this field display.
+ * @param array $field Field characteristics.
+ * @param int   $event_id Event being displayed.
+ *
+ * @return boolean
+ */
+function my_custom_field_rules( $return, $field, $event_id ) {
+	if ( 'custom' == $field['context'] ) {
+		// Display this field based on your custom rules.
+		// Example: restrict by post type.
+		if ( is_page( $event_id ) ) {
+			return true;
+		}
+	}
+
+	return $return;
 }
