@@ -17,7 +17,7 @@ add_filter( 'mt_redirect', 'my_redirect', 10, 1 );
  *
  * @return boolean
  */
-function my_select_events_count( $redirect ) {
+function my_redirect( $redirect ) {
 
 	return true;
 }
