@@ -24,13 +24,13 @@ add_filter( 'wpt_hash_source', 'my_hash_source', 10, 2 );
 function my_hash_source( $tags, $post_ID ) {
 	if ( get_post_type( $post_ID ) == 'mcm_people' ) {
 		// If Tweeting a post of post-type "relevant-post-type", use 'your-taxonoy-name' as the source for hashtags.
-		$taxonomy = 'mcm_category_people';		
+		$taxonomy = 'mcm_category_people';
 		$terms = wp_get_post_terms( $post_ID, $taxonomy );
 	} else {
 		$terms = $tags;
 	}
-	 
-    return $terms;
+
+	return $terms;
 }
 
 /**
