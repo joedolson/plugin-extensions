@@ -19,7 +19,7 @@
   * @return the value to be passed into the Tweet. This example returns a space-separated list of all terms in the provided taxonomy on this post.
   */
 add_filter( 'wpt_custom_shortcode', 'my_custom_taxonomy_terms', 10, 3 );
-function my_custom_author_field( $value, $post_ID, $field ) {
+function my_custom_taxonomy_terms( $value, $post_ID, $field ) {
 	if ( $field == 'terms' ) {
 		$terms = get_the_terms( $post_ID, 'your-custom-taxonomy' );
 		foreach ( $terms as $term ) {
