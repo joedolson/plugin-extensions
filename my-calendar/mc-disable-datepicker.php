@@ -37,3 +37,11 @@ function my_dequeue_scripts() {
 	wp_dequeue_script( 'pickadate' );
 	wp_deregister_script( 'pickadate' );
 }
+
+/**
+ * Add filter to disable datepicker in public submissions forn.
+ */
+add_filter( 'mcs_datepicker_enabled', 'my_disable_datepicker' );
+function my_disable_datepicker() {
+	return false;
+}
