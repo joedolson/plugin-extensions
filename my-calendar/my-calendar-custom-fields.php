@@ -11,6 +11,7 @@ Author URI: http://www.joedolson.com/
 
 /**
  * Add the input field for your custom field into the main section of My Calendar event details.
+ * These fields will be lumped together in the 'custom_fields' parameter in My Calendar Pro. To make sortable in Pro without being duplicated, make conditional based on the `$context` param. This example will only show in the admin.
  * 
  * @param string $form HTML of any other added custom fields.
  * @param boolean $has_data If true, this is an event being edited or corrected.
@@ -21,6 +22,33 @@ Author URI: http://www.joedolson.com/
 **/ 
 add_filter( 'mc_event_details', 'my_event_email', 10, 4 );
 function my_event_email( $form, $has_data, $event, $context ) {
+	if ( 'admin' === $context ) {
+		if ( $has_data ) {
+			$post_id = $event->event_post;
+			/* Any custom fields are saved as custom post meta */
+			$email = esc_attr( get_post_meta( $post_id, '_mc_event_email', true ) );
+		} else {
+			$email = '';
+		}
+		$form .= "<p><label for='event_email'>" . __( 'Contact Email', 'yourtextdomain' ) . "</label> <input type='email' name='event_email' id='event_email' value='$email' /></p>";
+	}
+	
+	return $form;
+}
+
+/**
+ * Add fields that are sortable in My Calendar Pro.
+ *
+ * @param array   $fields Array of fields available in Pro.
+ * @param boolean $has_data If true, this is an event being edited or corrected.
+ * @param object  $event The event object saved.
+ * @param string  $context 'public' or 'admin', depending on whether this is being rendered in the Pro submissions form or WP Admin.
+ *
+ * @since My Calendar Pro 2.0.0
+ *
+ * @return array of fields
+ */
+function mcs_event_email( $fields, $has_data, $event, $context ) {
 	if ( $has_data ) {
 		$post_id = $event->event_post;
 		/* Any custom fields are saved as custom post meta */
@@ -28,10 +56,12 @@ function my_event_email( $form, $has_data, $event, $context ) {
 	} else {
 		$email = '';
 	}
-	$form .= "<p><label for='event_email'>" . __( 'Contact Email', 'yourtextdomain' ) . "</label> <input type='email' name='event_email' id='event_email' value='$email' /></p>";
-	
-	return $form;
+	$form = "<p><label for='event_email'>" . __( 'Contact Email', 'yourtextdomain' ) . "</label> <input type='email' name='event_email' id='event_email' value='$email' /></p>";
+	$fields['event_email'] = $form;
+
+	return $fields;
 }
+add_filter( 'mc_custom_fields', 'mcs_event_email', 10, 4 );
 
 
 /**
