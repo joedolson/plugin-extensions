@@ -77,7 +77,7 @@ add_action( 'mc_update_event_post', 'my_event_email_save', 10, 4 );
 function my_event_email_save( $post_id, $post, $data, $event_id ) {
 	if ( is_email( $post['event_email'] ) ) {
 		$email = $post['event_email'];
-		update_post_meta( $post_id, '_mc_event_email', $email );	
+		update_post_meta( $post_id, '_mc_event_email', $email );
 	} 
 }
 
