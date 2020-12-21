@@ -61,7 +61,7 @@ function mcs_event_email( $fields, $has_data, $event, $context ) {
 
 	return $fields;
 }
-add_filter( 'mc_custom_fields', 'mcs_event_email', 10, 4 );
+add_filter( 'mc_custom_fields', 'mcs_event_email', 10, 5 );
 
 
 /**
