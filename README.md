@@ -24,7 +24,7 @@ Description: Describe what this plug-in does
 Author: Joe Dolson
 Version: 1.0.0
 Author URI: http://www.joedolson.com/
-*/```
+*/
 
 Any PHP file in the `/wp-content/` directory that has this comment will be recognized as a plug-in.
 
