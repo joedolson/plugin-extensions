@@ -8,7 +8,6 @@
  * Author URI: http://www.joedolson.com
  */
 
- 
 add_filter( 'option_jd_replace_character', 'replace_spaces' );
 /*
  * Replace default character (usually blank) with an underscore.

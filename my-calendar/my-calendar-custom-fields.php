@@ -97,4 +97,3 @@ function my_event_email_tag( $details, $event ) {
 	
 	return $details;
 }
-
