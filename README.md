@@ -26,7 +26,6 @@ Version: 1.0.0
 Author URI: http://www.joedolson.com/
 ```
 
-
 Any PHP file in the `/wp-content/` directory that has this comment will be recognized as a plug-in.
 
 The plug-ins in this repository are simple examples. They don't have options or settings, they are examples for manipulating the filters and actions in my plugins to customize their functionality. In most cases, you'll need to edit the code to change how they operate.
