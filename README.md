@@ -17,14 +17,15 @@ With plug-ins that have premium extensions, such as WP Tweets PRO for WP to Twit
 
 The header block is a section of comments that describe the plugin, and are used to identify that this is a plugin. A header block will look something like this:
 
-```/*
+```
 Plugin Name: Name of my Custom Plugin
 Plugin URI: http://www.joedolson.com
 Description: Describe what this plug-in does
 Author: Joe Dolson
 Version: 1.0.0
 Author URI: http://www.joedolson.com/
-*/```
+```
+
 
 Any PHP file in the `/wp-content/` directory that has this comment will be recognized as a plug-in.
 
