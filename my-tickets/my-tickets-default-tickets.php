@@ -13,5 +13,5 @@ Author URI: http://www.joedolson.com/
  */
 add_filter( 'mt_cart_default_value', 'my_cart_default_value', 10, 1 );
 function my_cart_default_value( $default ) {
-	return 1; // automatically add to cart on button press, instead of requiring user action.
+	return 1; // Default one ticket. Will set as checked for checkboxes.
 }
