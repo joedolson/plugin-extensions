@@ -3,11 +3,11 @@
 Plugin Name: My Tickets: Custom Fields
 Plugin URI: http://www.joedolson.com/my-tickets/
 Description: Custom Fields in My Tickets
-Version: 1.2.0
+Version: 1.2.1
 Author: Joseph Dolson
 Author URI: http://www.joedolson.com/
 */
-/*  Copyright 2014-2019  Joseph C Dolson  (email : plugins@joedolson.com)
+/*  Copyright 2014-2022  Joseph C Dolson  (email : plugins@joedolson.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
